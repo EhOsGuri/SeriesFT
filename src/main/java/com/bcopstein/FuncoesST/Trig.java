@@ -7,10 +7,11 @@ import java.util.List;
 public class Trig {
 	private List<Double> lista;
 	public Iterator<Double> getTermos(){
-		for (double x:lst) {
-			
+		try {
+			return lista.iterator();
+		}catch(UnsupportedOperationException u) {
+			throw new UnsupportedOperationException();
 		}
-		throw new UnsupportedOperationException();
 	}
 
 	public double cos(double x) {

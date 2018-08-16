@@ -38,11 +38,23 @@ public class ExpLog {
 	}
 
 	public double log(double x) {
-		//try {
-			
-		//}catch(UnsupportedOperationException o) {
+		try {
+			ex.clear();
+			if(Math.abs(x) > 1) {
+				return 0;
+			}else {	
+				double valor = 1;
+				int n =0;
+				while(Math.abs(valor) > Math.pow(10, -6)) {
+					valor = (Math.pow(-1, n) / (n+1)) * Math.pow(x, n+1);
+					ex.add(valor);
+					n++;
+				}		
+				return Util.somatorio(0, n, ex);
+			}
+		}catch(UnsupportedOperationException o) {
 			throw new UnsupportedOperationException();
-		//}
+		}
 		
 	}
 }
